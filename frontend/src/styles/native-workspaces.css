@@ -1,0 +1,2975 @@
+.native-workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+  gap: 20px;
+  min-width: 0;
+}
+
+.native-workspace__panel {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  padding: 22px;
+  border-radius: 30px;
+  background: rgba(255, 250, 244, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 20px 46px rgba(36, 47, 34, 0.1);
+}
+
+.native-workspace__panel--controls {
+  align-content: start;
+  align-self: start;
+  position: sticky;
+  top: 112px;
+}
+
+.native-workspace__panel--canvas {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(166, 190, 145, 0.18), transparent 28%),
+    radial-gradient(circle at 0% 100%, rgba(212, 182, 129, 0.12), transparent 24%),
+    rgba(252, 248, 243, 0.86);
+}
+
+.native-workspace__section-head {
+  display: grid;
+  gap: 6px;
+}
+
+.native-workspace__section-head h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: -0.04em;
+}
+
+.native-workspace__section-head p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.native-workspace__section-head--tight h3 {
+  font-size: 1.26rem;
+}
+
+.native-workspace__group {
+  display: grid;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(27, 42, 34, 0.08);
+}
+
+.native-tablist {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.native-tablist__item {
+  min-height: 42px;
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(245, 247, 242, 0.94);
+  border: 1px solid rgba(27, 42, 34, 0.06);
+}
+
+.native-tablist__item.is-active {
+  color: #f6fbf5;
+  background: linear-gradient(135deg, #225f43 0%, #143524 100%);
+}
+
+.native-field {
+  display: grid;
+  gap: 8px;
+}
+
+.native-field span {
+  color: var(--surface-ink);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.native-field input,
+.native-field select,
+.native-field textarea,
+.native-inline-actions input {
+  min-height: 46px;
+  width: 100%;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(32, 49, 38, 0.1);
+  background: rgba(255, 251, 247, 0.94);
+}
+
+.native-field input:focus,
+.native-field select:focus,
+.native-field textarea:focus,
+.native-inline-actions input:focus {
+  outline: 2px solid rgba(47, 107, 79, 0.16);
+  outline-offset: 0;
+  border-color: rgba(47, 107, 79, 0.28);
+}
+
+.native-field textarea,
+.native-textarea {
+  min-height: 104px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.native-field input[type="range"] {
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.native-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.native-file-input {
+  display: none;
+}
+
+.native-file-field__surface {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 50px;
+  padding: 8px 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(27, 42, 34, 0.1);
+  background: rgba(248, 250, 245, 0.92);
+}
+
+.native-file-field__button {
+  min-height: 36px;
+  padding-inline: 14px;
+  white-space: nowrap;
+}
+
+.native-file-field__meta {
+  min-width: 0;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.native-inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.native-inline-actions--triple > * {
+  flex: 1 1 0;
+}
+
+.native-hint {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.native-feedback {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(250, 244, 233, 0.94), rgba(243, 248, 239, 0.92));
+  border: 1px solid rgba(32, 49, 38, 0.06);
+}
+
+.native-feedback p,
+.native-feedback strong {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.native-feedback strong {
+  color: #a54838;
+}
+
+.native-lock-panel {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  min-height: 280px;
+  padding: 32px;
+  text-align: center;
+  border-radius: 28px;
+  color: #f4faf3;
+  background: linear-gradient(145deg, rgba(18, 43, 30, 0.96), rgba(34, 82, 57, 0.94));
+  box-shadow: 0 24px 52px rgba(16, 39, 27, 0.2);
+}
+
+.native-lock-panel strong,
+.native-lock-panel p {
+  margin: 0;
+}
+
+.native-lock-panel p {
+  max-width: 34rem;
+  color: rgba(244, 250, 243, 0.82);
+  line-height: 1.8;
+}
+
+.native-empty {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  min-height: 240px;
+  padding: 28px;
+  text-align: center;
+  border-radius: 26px;
+  color: var(--muted);
+  background: rgba(244, 248, 241, 0.76);
+  border: 1px dashed rgba(27, 42, 34, 0.12);
+}
+
+.native-empty--compact {
+  min-height: 140px;
+}
+
+.native-empty strong,
+.native-empty p {
+  margin: 0;
+}
+
+.native-video-box,
+.recognition-stage,
+.annotation-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: rgba(16, 28, 22, 0.94);
+}
+
+.native-video-box video,
+.recognition-stage img,
+.annotation-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.native-video-box {
+  min-height: 220px;
+}
+
+.native-video-box video {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.native-video-box__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.recognition-stage__media,
+.annotation-stage__frame {
+  position: relative;
+}
+
+.recognition-stage.is-heatmap {
+  background:
+    radial-gradient(circle at top right, rgba(189, 104, 255, 0.18), transparent 30%),
+    linear-gradient(180deg, rgba(16, 11, 29, 0.98), rgba(22, 14, 38, 0.96));
+}
+
+.recognition-stage__toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.recognition-stage__modes,
+.recognition-stage__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.recognition-stage__mode {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 44, 31, 0.1);
+  background: rgba(244, 248, 241, 0.82);
+  color: var(--surface-ink);
+  font-weight: 700;
+}
+
+.recognition-stage__mode.is-active {
+  color: #f7fbf6;
+  background: linear-gradient(142deg, rgba(22, 53, 38, 0.98), rgba(36, 98, 69, 0.96));
+  box-shadow: 0 16px 30px rgba(22, 53, 38, 0.18);
+}
+
+.recognition-stage__overlay,
+.annotation-stage__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.recognition-stage__overlay.is-hidden {
+  display: none;
+}
+
+.recognition-stage__overlay.is-visible {
+  display: block;
+}
+
+.recognition-stage__heatmap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.recognition-stage__heatmap.is-visible {
+  opacity: 1;
+}
+
+.recognition-box,
+.annotation-box {
+  position: absolute;
+  border-radius: 18px;
+  border: 2px solid rgba(215, 246, 165, 0.95);
+  background: rgba(140, 194, 104, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.recognition-box {
+  display: grid;
+  align-content: space-between;
+  padding: 8px;
+  color: #f7fff3;
+}
+
+.recognition-box--live {
+  z-index: 1;
+  backdrop-filter: blur(1px);
+}
+
+.recognition-box em {
+  font-style: normal;
+  font-size: 0.72rem;
+}
+
+.recognition-box strong {
+  justify-self: start;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background: rgba(12, 26, 19, 0.72);
+}
+
+.recognition-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.annotation-sidebar {
+  align-content: start;
+}
+
+.annotation-intro-card,
+.admin-hero-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right, rgba(171, 192, 144, 0.2), transparent 30%),
+    linear-gradient(145deg, rgba(31, 79, 57, 0.96), rgba(61, 97, 67, 0.92));
+  color: #f6fbf3;
+  box-shadow: 0 20px 44px rgba(28, 58, 43, 0.18);
+}
+
+.annotation-intro-card div,
+.admin-hero-card div {
+  display: grid;
+  gap: 6px;
+}
+
+.annotation-intro-card span,
+.admin-hero-card span {
+  color: rgba(246, 251, 243, 0.72);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.annotation-intro-card strong,
+.admin-hero-card strong {
+  font-size: 1.1rem;
+}
+
+.annotation-sidebar__overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.annotation-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.annotation-sidebar__section {
+  gap: 14px;
+}
+
+.annotation-dataset-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.annotation-dataset-overview__card {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(255, 249, 242, 0.92);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.annotation-dataset-overview__card span {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.annotation-dataset-overview__card strong {
+  color: var(--surface-ink);
+}
+
+.annotation-mode-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.annotation-mode-switch__item {
+  min-height: 46px;
+  border-radius: 18px;
+  border: 1px solid rgba(32, 49, 38, 0.08);
+  background: rgba(255, 249, 242, 0.84);
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.annotation-mode-switch__item.is-active {
+  color: #f7fbf5;
+  background: linear-gradient(135deg, #2f6b4f 0%, #1f4f39 100%);
+  box-shadow: 0 14px 28px rgba(31, 79, 57, 0.18);
+}
+
+.annotation-template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.annotation-template-card {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  text-align: left;
+  border-radius: 24px;
+  border: 1px solid rgba(32, 49, 38, 0.08);
+  background: rgba(255, 250, 245, 0.92);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.annotation-template-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(36, 47, 34, 0.08);
+}
+
+.annotation-template-card.is-active {
+  border-color: rgba(47, 107, 79, 0.26);
+  box-shadow: 0 18px 36px rgba(31, 79, 57, 0.14);
+}
+
+.annotation-template-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.annotation-template-card__head strong {
+  color: var(--surface-ink);
+  font-size: 1rem;
+}
+
+.annotation-template-card__head span,
+.annotation-template-card p {
+  color: var(--muted);
+}
+
+.annotation-template-card p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.annotation-template-card__preview,
+.annotation-context-pills,
+.annotation-class-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.annotation-template-card__preview span,
+.annotation-class-cloud__item,
+.annotation-class-cloud__empty {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(47, 107, 79, 0.08);
+  color: var(--surface-ink);
+  font-size: 0.76rem;
+}
+
+.annotation-clone-card,
+.annotation-template-summary {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: rgba(249, 245, 236, 0.9);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.annotation-clone-card strong,
+.annotation-template-summary strong {
+  color: var(--surface-ink);
+}
+
+.annotation-clone-card p,
+.annotation-template-summary p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.annotation-class-cloud__item {
+  border: 1px solid transparent;
+  background: rgba(47, 107, 79, 0.08);
+}
+
+.annotation-class-cloud__item.is-active {
+  color: #f7fbf5;
+  background: linear-gradient(135deg, #2f6b4f 0%, #1f4f39 100%);
+}
+
+.annotation-sidebar__section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.annotation-sidebar__section-head h4 {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.annotation-sidebar__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.annotation-sidebar__stat {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(244, 248, 241, 0.88);
+  border: 1px solid rgba(23, 44, 31, 0.08);
+}
+
+.annotation-sidebar__stat span {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.annotation-sidebar__stat strong {
+  color: var(--surface-ink);
+  font-size: 1rem;
+}
+
+.recognition-result-card {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(244, 248, 241, 0.88);
+}
+
+.recognition-result-card--hero {
+  background:
+    radial-gradient(circle at top right, rgba(244, 201, 93, 0.22), transparent 30%),
+    linear-gradient(180deg, rgba(247, 251, 244, 0.98), rgba(239, 245, 236, 0.94));
+}
+
+.recognition-result-card span,
+.recognition-result-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.recognition-result-card strong {
+  font-size: 1.2rem;
+  color: var(--surface-ink);
+}
+
+.recognition-list,
+.recognition-advice {
+  display: grid;
+  gap: 12px;
+}
+
+.annotation-advice-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(151, 196, 166, 0.16), transparent 28%),
+    rgba(244, 248, 241, 0.92);
+  border: 1px solid rgba(23, 44, 31, 0.08);
+}
+
+.annotation-advice-card--placeholder {
+  background: rgba(244, 248, 241, 0.76);
+}
+
+.annotation-advice-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.annotation-advice-card__head strong {
+  font-size: 1rem;
+  color: var(--surface-ink);
+}
+
+.annotation-advice-card__head span,
+.annotation-advice-card__meta,
+.annotation-advice-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.annotation-advice-card__head span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #184631;
+  background: rgba(45, 138, 87, 0.14);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.annotation-advice-card__meta {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.annotation-board {
+  display: grid;
+  gap: 18px;
+}
+
+.annotation-ops-banner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.annotation-ops-banner__card {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(190, 206, 151, 0.18), transparent 28%),
+    rgba(255, 250, 245, 0.94);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.annotation-ops-banner__card span,
+.annotation-ops-banner__card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.annotation-ops-banner__card strong {
+  color: var(--surface-ink);
+  font-size: 1.06rem;
+}
+
+.annotation-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px;
+  border-radius: 24px;
+  background: rgba(255, 249, 242, 0.9);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.annotation-toolbar__group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.annotation-board__main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.annotation-stage-wrap,
+.annotation-context {
+  display: grid;
+  gap: 12px;
+}
+
+.annotation-stage {
+  min-height: 460px;
+  display: grid;
+  place-items: center;
+}
+
+.annotation-stage__frame {
+  width: 100%;
+}
+
+.annotation-stage__frame img {
+  max-height: 72vh;
+  object-fit: contain;
+}
+
+.annotation-stage__caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 20px;
+  background: rgba(244, 248, 241, 0.88);
+  color: var(--muted);
+}
+
+.annotation-stage__caption span,
+.annotation-stage__caption strong {
+  margin: 0;
+}
+
+.annotation-stage__caption strong {
+  color: var(--surface-ink);
+}
+
+.annotation-context-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 250, 245, 0.92);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.annotation-context-card h4,
+.annotation-context-card p {
+  margin: 0;
+}
+
+.annotation-context-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.annotation-context-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.annotation-context-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.annotation-context-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(23, 44, 31, 0.08);
+}
+
+.annotation-context-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.annotation-context-list span {
+  color: var(--muted);
+}
+
+.annotation-context-list strong {
+  color: var(--surface-ink);
+  text-align: right;
+}
+
+.annotation-context-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.annotation-workflow-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 18px;
+}
+
+.annotation-training-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.annotation-training-action {
+  display: flex;
+  align-items: end;
+}
+
+.annotation-training-action > * {
+  width: 100%;
+}
+
+.annotation-focus {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  padding: 14px;
+  background: rgba(14, 24, 19, 0.78);
+  backdrop-filter: blur(10px);
+}
+
+.annotation-focus__shell {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
+  height: 100%;
+  padding: 16px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(151, 196, 166, 0.14), transparent 24%),
+    rgba(247, 250, 245, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+}
+
+.annotation-focus__toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 24px;
+  background: rgba(244, 248, 241, 0.92);
+  border: 1px solid rgba(23, 44, 31, 0.08);
+}
+
+.annotation-focus__toolbar-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.annotation-focus__toolbar-group--actions {
+  justify-content: flex-end;
+}
+
+.annotation-focus__meta {
+  display: grid;
+  gap: 4px;
+  min-width: 140px;
+}
+
+.annotation-focus__meta span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.annotation-focus__meta strong {
+  color: var(--surface-ink);
+  font-size: 1.1rem;
+}
+
+.annotation-focus__field {
+  min-width: 220px;
+}
+
+.annotation-focus__quick-input {
+  min-height: 46px;
+  min-width: 180px;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(27, 42, 34, 0.1);
+  background: rgba(248, 250, 245, 0.92);
+}
+
+.annotation-focus__quick-input:focus {
+  outline: 2px solid rgba(45, 138, 87, 0.16);
+  border-color: rgba(45, 138, 87, 0.28);
+}
+
+.annotation-focus__stage-wrap {
+  min-height: 0;
+}
+
+.annotation-stage--focus {
+  min-height: calc(100vh - 220px);
+  border-radius: 32px;
+}
+
+.annotation-stage--focus .annotation-stage__frame img {
+  max-height: calc(100vh - 260px);
+}
+
+.annotation-focus__dock {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.annotation-focus__summary {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(244, 248, 241, 0.92);
+  border: 1px solid rgba(23, 44, 31, 0.08);
+}
+
+.annotation-focus__summary span,
+.annotation-focus__summary p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.annotation-focus__summary strong {
+  color: var(--surface-ink);
+  font-size: 1rem;
+}
+
+.recognition-dual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.recognition-collection {
+  align-content: start;
+}
+
+.recognition-list__item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.recognition-attention {
+  display: grid;
+  gap: 14px;
+}
+
+.recognition-attention__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.recognition-attention__card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(198, 166, 255, 0.34), transparent 34%),
+    linear-gradient(180deg, rgba(251, 248, 255, 0.98), rgba(243, 236, 255, 0.96));
+  border: 1px solid rgba(127, 78, 208, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 14px 28px rgba(103, 58, 183, 0.08);
+}
+
+.recognition-attention__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.48) 48%, transparent 76%);
+  transform: translateX(-120%);
+  animation: recognition-attention-sweep 4.2s ease-in-out infinite;
+}
+
+.recognition-attention__card.is-placeholder {
+  background:
+    radial-gradient(circle at top right, rgba(176, 176, 176, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(248, 249, 251, 0.98), rgba(240, 243, 246, 0.96));
+  border-color: rgba(120, 129, 141, 0.12);
+}
+
+.recognition-attention__top,
+.recognition-attention__layer-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.recognition-attention__top span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(109, 57, 217, 0.12);
+  color: #6b39d7;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.recognition-attention__top strong {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6d39d9, #c452f0);
+  color: #fff;
+  font-size: 0.78rem;
+  box-shadow: 0 10px 20px rgba(132, 67, 225, 0.22);
+}
+
+.recognition-attention__title,
+.recognition-attention__layers {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 4px;
+}
+
+.recognition-attention__title h4,
+.recognition-attention__title p,
+.recognition-attention__foot {
+  margin: 0;
+}
+
+.recognition-attention__title h4 {
+  font-size: 1rem;
+  color: #2a203b;
+}
+
+.recognition-attention__title p,
+.recognition-attention__foot {
+  color: #726b87;
+}
+
+.recognition-attention__track,
+.recognition-attention__layer-track {
+  position: relative;
+  z-index: 1;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(108, 57, 217, 0.1), rgba(255, 214, 92, 0.14));
+}
+
+.recognition-attention__track span,
+.recognition-attention__layer-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6b39d7 0%, #9e44ef 38%, #f06fcc 72%, #ffd95d 100%);
+  box-shadow: 0 0 16px rgba(148, 76, 237, 0.24);
+}
+
+.recognition-attention__layers {
+  gap: 8px;
+}
+
+.recognition-attention__layer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(252, 249, 255, 0.98), rgba(243, 235, 255, 0.9));
+  border: 1px solid rgba(123, 83, 205, 0.1);
+}
+
+.recognition-attention__layer-head span {
+  color: #463463;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.recognition-attention__layer-head strong {
+  color: #6b39d7;
+  font-size: 0.74rem;
+}
+
+.recognition-advice__meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.ops-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ops-metric-grid--stacked {
+  grid-template-columns: 1fr;
+}
+
+.ops-card {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(177, 196, 149, 0.14), transparent 26%),
+    rgba(255, 250, 245, 0.92);
+  border: 1px solid rgba(32, 49, 38, 0.06);
+}
+
+.ops-card span,
+.ops-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.ops-card strong {
+  font-size: 1.16rem;
+  color: var(--surface-ink);
+}
+
+.native-form {
+  display: grid;
+  gap: 12px;
+}
+
+.native-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 11px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.native-pill--accent {
+  color: #184631;
+  background: rgba(45, 138, 87, 0.14);
+}
+
+.native-pill--neutral {
+  color: var(--surface-ink);
+  background: rgba(27, 42, 34, 0.08);
+}
+
+.native-pill--warm {
+  color: #7b5a0e;
+  background: rgba(245, 200, 95, 0.22);
+}
+
+.native-pill--critical {
+  color: #8d4335;
+  background: rgba(180, 81, 57, 0.14);
+}
+
+.asset-collection {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 28px;
+  background: rgba(255, 251, 247, 0.62);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.asset-collection__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.asset-collection__head h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+}
+
+.asset-collection__head p {
+  margin: 0;
+}
+
+.asset-list {
+  display: grid;
+  gap: 10px;
+}
+
+.asset-rows {
+  display: grid;
+  gap: 10px;
+}
+
+.asset-list--compact {
+  gap: 8px;
+}
+
+.asset-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 22px;
+  background: rgba(255, 250, 245, 0.9);
+  border: 1px solid rgba(32, 49, 38, 0.06);
+}
+
+.asset-row.is-active {
+  outline: 2px solid rgba(34, 95, 67, 0.2);
+}
+
+.asset-row--compact {
+  align-items: flex-start;
+}
+
+.asset-row__main {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.asset-row__main p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.asset-row__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.asset-row__title strong {
+  font-size: 1rem;
+}
+
+.asset-row__badges,
+.asset-row__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.native-utility-button {
+  min-height: 36px;
+  padding-inline: 12px;
+  font-size: 0.86rem;
+}
+
+.admin-board,
+.details-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(300px, 0.94fr);
+  gap: 18px;
+}
+
+.asset-collection--wide {
+  grid-column: 1 / -1;
+}
+
+.admin-user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.admin-user-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 250, 245, 0.92);
+  border: 1px solid rgba(32, 49, 38, 0.06);
+}
+
+.admin-user-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.admin-user-card__head strong,
+.admin-user-card__head span,
+.admin-user-card__stats span {
+  display: block;
+}
+
+.admin-user-card__head span,
+.admin-user-card__stats span {
+  color: var(--muted);
+}
+
+.admin-user-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-two-column-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.augmentation-studio {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 16px;
+}
+
+.augmentation-studio__hero,
+.augmentation-studio__controls,
+.augmentation-card {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 250, 245, 0.92);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.augmentation-studio__hero span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.augmentation-studio__hero strong {
+  color: var(--surface-ink);
+  font-size: 1.36rem;
+}
+
+.augmentation-studio__hero p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.augmentation-studio__meta,
+.augmentation-card__meta,
+.augmentation-card__tags,
+.augmentation-studio__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.augmentation-studio__meta span,
+.augmentation-card__meta span,
+.augmentation-card__tags span,
+.augmentation-studio__tags span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(32, 49, 38, 0.06);
+  font-size: 0.76rem;
+  color: var(--surface-ink);
+}
+
+.augmentation-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.augmentation-card {
+  text-align: left;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.augmentation-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(36, 47, 34, 0.08);
+}
+
+.augmentation-card.is-active,
+.augmentation-card.is-selected {
+  border-color: rgba(47, 107, 79, 0.26);
+  box-shadow: 0 18px 36px rgba(31, 79, 57, 0.14);
+}
+
+.augmentation-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.augmentation-card__head strong {
+  color: var(--surface-ink);
+}
+
+.augmentation-card__head span,
+.augmentation-card p {
+  color: var(--muted);
+}
+
+.augmentation-card p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.guide-grid--stacked {
+  grid-template-columns: 1fr;
+}
+
+.guide-card {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(244, 248, 241, 0.9);
+  border: 1px solid rgba(23, 44, 31, 0.06);
+}
+
+.guide-card span,
+.guide-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.guide-card strong {
+  font-size: 1.12rem;
+  color: var(--surface-ink);
+}
+
+.annotation-side-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.75fr);
+  gap: 18px;
+}
+
+.native-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.native-list--stacked {
+  gap: 10px;
+}
+
+.native-list__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 250, 245, 0.9);
+}
+
+.native-list__item strong,
+.native-list__item span {
+  margin: 0;
+}
+
+.native-list__item--stacked {
+  align-items: stretch;
+}
+
+.native-list__button {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  background: transparent;
+}
+
+.native-list__item.is-active {
+  outline: 2px solid rgba(34, 95, 67, 0.3);
+}
+
+.annotation-box {
+  padding: 0;
+  color: #f6fbf5;
+  background: rgba(45, 138, 87, 0.12);
+}
+
+.annotation-box span {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 4px 8px;
+  border-radius: 14px 0 14px 0;
+  font-size: 0.7rem;
+  background: rgba(18, 43, 30, 0.82);
+}
+
+.annotation-box.is-active {
+  border-color: #ffd56a;
+}
+
+.annotation-box.is-active span {
+  background: rgba(123, 90, 14, 0.9);
+}
+
+.annotation-box.is-assist {
+  border-style: dashed;
+}
+
+.annotation-box--draft {
+  pointer-events: none;
+  border-style: dashed;
+  border-color: #f5c85f;
+  background: rgba(245, 200, 95, 0.12);
+}
+
+.train-progress {
+  display: grid;
+  gap: 12px;
+}
+
+.train-progress__bar {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(27, 42, 34, 0.08);
+}
+
+.train-progress__bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #225f43 0%, #6aa66f 100%);
+}
+
+.train-progress__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.train-progress__meta strong {
+  font-size: 1.1rem;
+}
+
+@keyframes recognition-attention-sweep {
+  0%,
+  100% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(120%);
+  }
+}
+
+@media (max-width: 1200px) {
+  .native-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .native-workspace__panel--controls {
+    position: static;
+  }
+
+  .annotation-side-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .annotation-board__main,
+  .annotation-workflow-grid,
+  .annotation-sidebar__overview,
+  .annotation-focus__dock,
+  .annotation-ops-banner,
+  .annotation-dataset-overview,
+  .annotation-intro-card,
+  .admin-hero-card,
+  .augmentation-studio {
+    grid-template-columns: 1fr;
+  }
+
+  .annotation-sidebar__stats,
+  .annotation-training-grid,
+  .admin-two-column-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-board,
+  .details-board,
+  .guide-grid,
+  .ops-metric-grid,
+  .recognition-dual-grid,
+  .recognition-attention__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .native-tablist,
+  .recognition-result-grid,
+  .annotation-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recognition-stage__toolbar,
+  .native-inline-actions,
+  .native-inline-actions--triple,
+  .annotation-toolbar,
+  .annotation-toolbar__group,
+  .annotation-stage__caption,
+  .annotation-focus__toolbar,
+  .annotation-focus__toolbar-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .annotation-sidebar__stats,
+  .annotation-training-grid,
+  .annotation-sidebar__overview,
+  .admin-two-column-grid,
+  .annotation-mode-switch {
+    grid-template-columns: 1fr;
+  }
+
+  .annotation-focus {
+    padding: 8px;
+  }
+
+  .annotation-focus__shell {
+    padding: 10px;
+  }
+
+  .asset-row,
+  .asset-collection__head,
+  .admin-user-card__head,
+  .annotation-sidebar__section-head,
+  .annotation-advice-card__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Console redesign */
+.native-workspace {
+  grid-template-columns: minmax(318px, 356px) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.native-workspace__panel {
+  gap: 14px;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(249, 244, 236, 0.94), rgba(241, 236, 228, 0.92));
+  border: 1px solid rgba(29, 44, 35, 0.08);
+  box-shadow: 0 18px 40px rgba(19, 29, 23, 0.1);
+}
+
+.native-workspace__panel--controls {
+  position: static;
+  background:
+    radial-gradient(circle at top right, rgba(187, 138, 87, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(23, 35, 27, 0.98), rgba(31, 47, 37, 0.96));
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 48px rgba(15, 22, 18, 0.24);
+  color: #f1ece3;
+}
+
+.native-workspace__panel--canvas {
+  background:
+    radial-gradient(circle at top right, rgba(187, 138, 87, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(249, 244, 236, 0.96), rgba(242, 237, 228, 0.94));
+}
+
+.native-workspace__panel--controls .native-workspace__section-head h3,
+.native-workspace__panel--controls .native-workspace__section-head p,
+.native-workspace__panel--controls .workspace__section-label,
+.native-workspace__panel--controls .native-hint,
+.native-workspace__panel--controls .native-field span,
+.native-workspace__panel--controls .native-checkbox,
+.native-workspace__panel--controls .native-pill,
+
+.native-workspace__panel--controls .native-pill--neutral,
+.native-workspace__panel--controls .native-pill--critical {
+  color: #f1ece3;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.native-workspace__section-head {
+  gap: 4px;
+}
+
+.native-workspace__section-head h3 {
+  font-size: 1.38rem;
+}
+
+.native-workspace__section-head p:last-child {
+  line-height: 1.68;
+}
+
+.native-empty {
+  min-height: 220px;
+  border-radius: 22px;
+  background: rgba(245, 240, 232, 0.7);
+  border: 1px dashed rgba(36, 56, 45, 0.14);
+}
+
+.native-empty--compact {
+  min-height: 136px;
+}
+
+.native-video-box,
+.recognition-stage,
+.annotation-stage {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(14, 22, 18, 0.98), rgba(20, 30, 24, 0.96));
+}
+
+.native-video-box::before,
+.recognition-stage::before,
+.annotation-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 72px
+    );
+  opacity: 0.22;
+}
+
+.recognition-stage.is-heatmap {
+  background:
+    radial-gradient(circle at top right, rgba(199, 154, 102, 0.16), transparent 24%),
+    linear-gradient(180deg, rgba(14, 22, 18, 0.98), rgba(25, 21, 17, 0.96));
+}
+
+.recognition-stage__toolbar,
+.annotation-toolbar,
+.annotation-stage__caption,
+.annotation-focus__toolbar {
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(246, 240, 231, 0.76);
+  border: 1px solid rgba(29, 44, 35, 0.08);
+}
+
+.recognition-stage__mode {
+  min-height: 34px;
+  border-radius: 999px;
+  background: rgba(255, 248, 240, 0.74);
+}
+
+.recognition-stage__mode.is-active {
+  background: linear-gradient(135deg, #395c48 0%, #1e3026 100%);
+  box-shadow: none;
+}
+
+.recognition-result-card,
+.ops-card,
+.guide-card,
+.annotation-dataset-overview__card,
+.annotation-ops-banner__card,
+.annotation-context-card,
+.annotation-focus__summary,
+.admin-user-card,
+.augmentation-studio__hero,
+.augmentation-studio__controls,
+.augmentation-card,
+.asset-collection,
+.native-list__item,
+.annotation-template-card,
+.annotation-clone-card,
+.annotation-template-summary,
+.annotation-advice-card,
+.annotation-sidebar__stat {
+  border-radius: 20px;
+  border: 1px solid rgba(29, 44, 35, 0.08);
+  box-shadow: none;
+}
+
+.recognition-result-card,
+.ops-card,
+.guide-card,
+.annotation-dataset-overview__card,
+.annotation-ops-banner__card,
+.annotation-context-card,
+.annotation-focus__summary,
+.admin-user-card,
+.augmentation-studio__hero,
+.augmentation-studio__controls,
+.augmentation-card,
+.annotation-template-card,
+.annotation-clone-card,
+.annotation-template-summary,
+.annotation-advice-card,
+.annotation-sidebar__stat,
+.native-list__item {
+  background: rgba(250, 245, 237, 0.82);
+}
+
+.recognition-result-card--hero,
+.annotation-ops-banner__card:first-child,
+.ops-card:first-child {
+  background:
+    radial-gradient(circle at top right, rgba(187, 138, 87, 0.12), transparent 28%),
+    rgba(248, 243, 235, 0.9);
+}
+
+.annotation-intro-card,
+.admin-hero-card {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f0ebe2;
+  box-shadow: none;
+}
+
+.annotation-intro-card span,
+.admin-hero-card span {
+  color: rgba(240, 235, 226, 0.56);
+}
+
+.annotation-intro-card strong,
+.admin-hero-card strong {
+  font-size: 1rem;
+  color: #f5f0e7;
+}
+
+.annotation-class-cloud__item,
+.annotation-template-card__preview span,
+.annotation-class-cloud__empty,
+.augmentation-studio__meta span,
+.augmentation-card__meta span,
+.augmentation-card__tags span,
+.augmentation-studio__tags span {
+  background: rgba(58, 94, 75, 0.08);
+  color: var(--surface-ink);
+}
+
+.annotation-class-cloud__item.is-active {
+  background: linear-gradient(135deg, #395c48 0%, #1e3026 100%);
+}
+
+.recognition-attention__card {
+  background:
+    radial-gradient(circle at top right, rgba(187, 138, 87, 0.16), transparent 30%),
+    linear-gradient(180deg, rgba(249, 244, 236, 0.98), rgba(239, 235, 226, 0.96));
+  border: 1px solid rgba(34, 52, 41, 0.08);
+  box-shadow: none;
+}
+
+.recognition-attention__card::before {
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.3) 48%, transparent 76%);
+}
+
+.recognition-attention__card.is-placeholder {
+  background:
+    radial-gradient(circle at top right, rgba(120, 129, 141, 0.1), transparent 30%),
+    linear-gradient(180deg, rgba(246, 244, 241, 0.98), rgba(238, 236, 232, 0.96));
+}
+
+.recognition-attention__top span {
+  color: #294334;
+  background: rgba(58, 94, 75, 0.1);
+}
+
+.recognition-attention__top strong {
+  background: linear-gradient(135deg, #395c48 0%, #203126 100%);
+  box-shadow: none;
+}
+
+.recognition-attention__title h4 {
+  color: #223329;
+}
+
+.recognition-attention__title p,
+.recognition-attention__foot,
+.recognition-attention__layer-head span {
+  color: #6b7369;
+}
+
+.recognition-attention__track,
+.recognition-attention__layer-track {
+  background: linear-gradient(90deg, rgba(57, 92, 72, 0.08), rgba(187, 138, 87, 0.16));
+}
+
+.recognition-attention__track span,
+.recognition-attention__layer-track span {
+  background: linear-gradient(90deg, #2f4b3b 0%, #4f725c 58%, #c49563 100%);
+  box-shadow: none;
+}
+
+.recognition-attention__layer {
+  background: rgba(255, 250, 244, 0.82);
+  border: 1px solid rgba(34, 52, 41, 0.08);
+}
+
+.recognition-attention__layer-head strong {
+  color: #315141;
+}
+
+.recognition-box,
+.annotation-box {
+  border-radius: 14px;
+  border-color: rgba(221, 196, 145, 0.96);
+  background: rgba(196, 164, 96, 0.12);
+}
+
+.recognition-box strong,
+.annotation-box span {
+  background: rgba(15, 24, 19, 0.82);
+}
+
+.annotation-box.is-active {
+  border-color: #d1a268;
+}
+
+.asset-collection {
+  gap: 12px;
+  padding: 14px;
+  background: rgba(248, 243, 235, 0.72);
+}
+
+.asset-row {
+  border-radius: 18px;
+  background: rgba(252, 247, 239, 0.9);
+  border: 1px solid rgba(29, 44, 35, 0.06);
+}
+
+.asset-row.is-active,
+.native-list__item.is-active {
+  outline: 2px solid rgba(57, 92, 72, 0.22);
+}
+
+.train-progress__bar {
+  height: 10px;
+}
+
+.train-progress__bar span {
+  background: linear-gradient(135deg, #315141 0%, #c2915d 100%);
+}
+
+.annotation-focus {
+  background: rgba(17, 25, 20, 0.7);
+  backdrop-filter: blur(14px);
+}
+
+.annotation-focus__shell {
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(187, 138, 87, 0.12), transparent 24%),
+    rgba(248, 243, 235, 0.98);
+}
+
+@media (max-width: 1200px) {
+  .native-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .native-workspace__panel {
+    padding: 16px;
+  }
+
+  .annotation-intro-card,
+  .admin-hero-card,
+  .annotation-ops-banner,
+  .annotation-dataset-overview,
+  .annotation-sidebar__stats,
+  .annotation-training-grid,
+  .ops-metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recognition-stage__toolbar,
+  .annotation-toolbar,
+  .annotation-stage__caption,
+  .annotation-focus__toolbar {
+    padding: 12px;
+  }
+}
+
+.workspace__main .native-workspace__panel--controls {
+  position: static;
+  background:
+    radial-gradient(circle at top right, rgba(187, 138, 87, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(249, 244, 236, 0.98), rgba(242, 237, 228, 0.96));
+  border-color: rgba(29, 44, 35, 0.08);
+  box-shadow: 0 14px 30px rgba(19, 29, 23, 0.06);
+  color: var(--surface-ink);
+}
+
+.workspace__main .native-workspace__panel--controls .native-workspace__section-head h3,
+.workspace__main .native-workspace__panel--controls .native-workspace__section-head p,
+.workspace__main .native-workspace__panel--controls .workspace__section-label,
+.workspace__main .native-workspace__panel--controls .native-hint,
+.workspace__main .native-workspace__panel--controls .native-field span,
+.workspace__main .native-workspace__panel--controls .native-checkbox,
+.workspace__main .native-workspace__panel--controls .native-pill,
+.workspace__main .native-workspace__panel--controls .annotation-sidebar__section-head h4,
+.workspace__main .native-workspace__panel--controls .annotation-sidebar__section-head .workspace__section-label,
+.workspace__main .native-workspace__panel--controls .asset-collection__head p,
+.workspace__main .native-workspace__panel--controls .asset-collection__head h3 {
+  color: var(--surface-ink);
+}
+
+.workspace__main .native-workspace__panel--controls .native-workspace__section-head p:last-child,
+.workspace__main .native-workspace__panel--controls .native-hint,
+.workspace__main .native-workspace__panel--controls .annotation-template-card p,
+.workspace__main .native-workspace__panel--controls .annotation-template-card__head span,
+.workspace__main .native-workspace__panel--controls .annotation-clone-card p,
+.workspace__main .native-workspace__panel--controls .annotation-template-summary p,
+.workspace__main .native-workspace__panel--controls .annotation-advice-card__meta,
+.workspace__main .native-workspace__panel--controls .annotation-advice-card p,
+.workspace__main .native-workspace__panel--controls .annotation-dataset-overview__card span,
+.workspace__main .native-workspace__panel--controls .annotation-sidebar__stat span,
+.workspace__main .native-workspace__panel--controls .native-feedback p,
+.workspace__main .native-workspace__panel--controls .ops-card p {
+  color: var(--muted);
+}
+
+.workspace__main .native-workspace__panel--controls .native-workspace__group {
+  border-top-color: rgba(29, 44, 35, 0.08);
+}
+
+.workspace__main .native-workspace__panel--controls .primary {
+  color: #f4efe6;
+  background: linear-gradient(135deg, #395c48 0%, #203126 100%);
+  box-shadow: none;
+}
+
+.workspace__main .native-workspace__panel--controls .secondary,
+.workspace__main .native-workspace__panel--controls .native-link,
+.workspace__main .native-workspace__panel--controls .native-tablist__item,
+.workspace__main .native-workspace__panel--controls .annotation-mode-switch__item,
+.workspace__main .native-workspace__panel--controls .native-file-field__button {
+  color: var(--surface-ink);
+  background: rgba(255, 250, 244, 0.82);
+  border: 1px solid rgba(29, 44, 35, 0.08);
+}
+
+.workspace__main .native-workspace__panel--controls .native-tablist__item.is-active,
+.workspace__main .native-workspace__panel--controls .annotation-mode-switch__item.is-active {
+  color: #f4efe6;
+  background: linear-gradient(135deg, #395c48 0%, #203126 100%);
+}
+
+.workspace__main .native-workspace__panel--controls .native-field input,
+.workspace__main .native-workspace__panel--controls .native-field select,
+.workspace__main .native-workspace__panel--controls .native-field textarea,
+.workspace__main .native-workspace__panel--controls .native-inline-actions input,
+.workspace__main .native-workspace__panel--controls .annotation-focus__quick-input,
+.workspace__main .native-workspace__panel--controls .native-file-field__surface {
+  color: var(--surface-ink);
+  background: rgba(255, 250, 244, 0.84);
+  border-color: rgba(29, 44, 35, 0.08);
+}
+
+.workspace__main .native-workspace__panel--controls .native-field input::placeholder,
+.workspace__main .native-workspace__panel--controls .native-inline-actions input::placeholder {
+  color: rgba(93, 108, 96, 0.58);
+}
+
+.workspace__main .native-workspace__panel--controls .native-field input[type="range"] {
+  accent-color: #395c48;
+}
+
+.workspace__main .native-workspace__panel--controls .native-feedback {
+  background: rgba(244, 239, 231, 0.86);
+  border-color: rgba(29, 44, 35, 0.08);
+}
+
+.workspace__main .native-workspace__panel--controls .native-pill--accent {
+  color: #f4efe6;
+  background: linear-gradient(135deg, #395c48 0%, #203126 100%);
+}
+
+.workspace__main .native-workspace__panel--controls .native-pill--warm {
+  color: #1a231d;
+  background: linear-gradient(135deg, #d0a774 0%, #bb8652 100%);
+}
+
+.workspace__main .native-workspace__panel--controls .native-pill--neutral,
+.workspace__main .native-workspace__panel--controls .native-pill--critical {
+  color: var(--surface-ink);
+  background: rgba(31, 45, 36, 0.06);
+}
+
+@media (max-width: 1180px) {
+  .workspace__main .native-workspace--recognition,
+  .workspace__main .native-workspace--annotation {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Elegant green surface */
+.workspace__main .native-workspace__panel {
+  border-color: rgba(27, 45, 35, 0.08);
+}
+
+.workspace__main .native-workspace__section-head h3,
+.workspace__main .asset-collection__head h3,
+.workspace__main .annotation-context-card h4,
+.workspace__main .annotation-sidebar__section-head h4,
+.workspace__main .recognition-result-card strong,
+.workspace__main .ops-card strong,
+.workspace__main .guide-card strong,
+.workspace__main .annotation-dataset-overview__card strong,
+.workspace__main .annotation-ops-banner__card strong,
+.workspace__main .annotation-context-card strong,
+.workspace__main .annotation-focus__summary strong,
+.workspace__main .annotation-advice-card__head strong {
+  color: #17231d;
+}
+
+.workspace__main .native-workspace__section-head p:last-child,
+.workspace__main .asset-collection__head p,
+.workspace__main .annotation-context-card p,
+.workspace__main .recognition-advice__meta,
+.workspace__main .recognition-result-card p,
+.workspace__main .ops-card p,
+.workspace__main .guide-card p,
+.workspace__main .annotation-advice-card p,
+.workspace__main .annotation-advice-card__meta,
+.workspace__main .native-empty,
+.workspace__main .native-list__item span,
+.workspace__main .recognition-list__item p {
+  color: #697565;
+}
+
+.workspace__main .native-workspace__panel--controls .primary,
+.workspace__main .native-workspace__panel--controls .native-pill--accent {
+  background: linear-gradient(135deg, #356c51 0%, #244636 100%);
+}
+
+.workspace__main .native-workspace__panel--controls .secondary,
+.workspace__main .native-workspace__panel--controls .native-link,
+.workspace__main .native-workspace__panel--controls .native-tablist__item,
+.workspace__main .native-workspace__panel--controls .annotation-mode-switch__item,
+.workspace__main .native-workspace__panel--controls .native-file-field__button {
+  border-color: rgba(27, 45, 35, 0.08);
+}
+
+.workspace__main .recognition-stage__mode.is-active,
+.workspace__main .annotation-mode-switch__item.is-active,
+.workspace__main .native-tablist__item.is-active {
+  background: rgba(47, 107, 79, 0.12);
+  border-color: rgba(47, 107, 79, 0.22);
+  color: #28513d;
+}
+
+.workspace__main .recognition-stage__toolbar,
+.workspace__main .annotation-toolbar,
+.workspace__main .annotation-stage__caption,
+.workspace__main .annotation-focus__toolbar,
+.workspace__main .native-empty,
+.workspace__main .recognition-result-card,
+.workspace__main .ops-card,
+.workspace__main .guide-card,
+.workspace__main .annotation-dataset-overview__card,
+.workspace__main .annotation-ops-banner__card,
+.workspace__main .annotation-context-card,
+.workspace__main .annotation-focus__summary,
+.workspace__main .admin-user-card,
+.workspace__main .augmentation-studio__hero,
+.workspace__main .augmentation-studio__controls,
+.workspace__main .augmentation-card,
+.workspace__main .asset-collection,
+.workspace__main .native-list__item,
+.workspace__main .annotation-template-card,
+.workspace__main .annotation-clone-card,
+.workspace__main .annotation-template-summary,
+.workspace__main .annotation-advice-card,
+.workspace__main .annotation-sidebar__stat {
+  border-color: rgba(27, 45, 35, 0.08);
+}
+
+.workspace__main .recognition-stage,
+.workspace__main .annotation-stage,
+.workspace__main .native-video-box {
+  background: linear-gradient(180deg, #132019 0%, #182720 100%);
+  border-color: rgba(23, 35, 29, 0.2);
+}
+
+.workspace__main .recognition-box,
+.workspace__main .annotation-box {
+  border-color: rgba(96, 168, 122, 0.86);
+  background: rgba(84, 150, 108, 0.12);
+}
+
+.workspace__main .recognition-attention__top span {
+  color: #28513d;
+  background: rgba(47, 107, 79, 0.1);
+}
+
+.workspace__main .recognition-attention__top strong {
+  background: #2c5b44;
+}
+
+.workspace__main .recognition-attention__track,
+.workspace__main .recognition-attention__layer-track {
+  background: rgba(47, 107, 79, 0.08);
+}
+
+.workspace__main .recognition-attention__track span,
+.workspace__main .recognition-attention__layer-track span,
+.workspace__main .train-progress__bar span {
+  background: linear-gradient(90deg, #6ba17c 0%, #2f6b4f 100%);
+}
+
+/* Soft green panel surfaces */
+.workspace__main .native-workspace__panel,
+.workspace__main .native-workspace__panel--canvas,
+.workspace__main .native-workspace__panel--controls,
+.workspace__main .recognition-stage__toolbar,
+.workspace__main .annotation-toolbar,
+.workspace__main .annotation-stage__caption,
+.workspace__main .annotation-focus__toolbar,
+.workspace__main .recognition-result-card,
+.workspace__main .ops-card,
+.workspace__main .guide-card,
+.workspace__main .annotation-dataset-overview__card,
+.workspace__main .annotation-ops-banner__card,
+.workspace__main .annotation-context-card,
+.workspace__main .annotation-focus__summary,
+.workspace__main .admin-user-card,
+.workspace__main .augmentation-studio__hero,
+.workspace__main .augmentation-studio__controls,
+.workspace__main .augmentation-card,
+.workspace__main .asset-collection,
+.workspace__main .native-list__item,
+.workspace__main .annotation-template-card,
+.workspace__main .annotation-clone-card,
+.workspace__main .annotation-template-summary,
+.workspace__main .annotation-advice-card,
+.workspace__main .annotation-sidebar__stat,
+.workspace__main .native-empty {
+  background: rgba(249, 252, 249, 0.92);
+}
+
+.workspace__main .native-workspace__panel,
+.workspace__main .recognition-stage__toolbar,
+.workspace__main .annotation-toolbar,
+.workspace__main .annotation-stage__caption,
+.workspace__main .annotation-focus__toolbar,
+.workspace__main .recognition-result-card,
+.workspace__main .ops-card,
+.workspace__main .guide-card,
+.workspace__main .annotation-dataset-overview__card,
+.workspace__main .annotation-ops-banner__card,
+.workspace__main .annotation-context-card,
+.workspace__main .annotation-focus__summary,
+.workspace__main .admin-user-card,
+.workspace__main .augmentation-studio__hero,
+.workspace__main .augmentation-studio__controls,
+.workspace__main .augmentation-card,
+.workspace__main .asset-collection,
+.workspace__main .native-list__item,
+.workspace__main .annotation-template-card,
+.workspace__main .annotation-clone-card,
+.workspace__main .annotation-template-summary,
+.workspace__main .annotation-advice-card,
+.workspace__main .annotation-sidebar__stat,
+.workspace__main .native-empty {
+  border-color: rgba(41, 67, 50, 0.08);
+}
+
+.workspace__main .native-workspace__panel--controls .native-field input,
+.workspace__main .native-workspace__panel--controls .native-field select,
+.workspace__main .native-workspace__panel--controls .native-field textarea,
+.workspace__main .native-workspace__panel--controls .native-inline-actions input,
+.workspace__main .native-workspace__panel--controls .annotation-focus__quick-input,
+.workspace__main .native-workspace__panel--controls .native-file-field__surface {
+  background: #ffffff;
+  border-color: rgba(41, 67, 50, 0.08);
+}
+
+.workspace__main .recognition-stage__mode,
+.workspace__main .annotation-mode-switch__item,
+.workspace__main .native-tablist__item {
+  background: #ffffff;
+  border-color: rgba(41, 67, 50, 0.08);
+}
+
+.workspace__main .recognition-detail-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.workspace__main .recognition-result-grid {
+  gap: 10px;
+}
+
+.workspace__main .recognition-result-card {
+  padding: 14px 16px;
+  border-radius: 20px;
+}
+
+.workspace__main .recognition-result-card strong {
+  font-size: 1.08rem;
+}
+
+.workspace__main .recognition-placeholder-card {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(248, 251, 248, 0.96);
+  border: 1px solid rgba(41, 67, 50, 0.08);
+}
+
+.workspace__main .recognition-placeholder-card__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.workspace__main .recognition-placeholder-card__step {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(41, 67, 50, 0.08);
+}
+
+.workspace__main .recognition-placeholder-card__step span,
+.workspace__main .recognition-placeholder-card__step strong {
+  margin: 0;
+}
+
+.workspace__main .recognition-placeholder-card__step span {
+  color: #708070;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.workspace__main .recognition-placeholder-card__step strong {
+  color: #17231d;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.workspace__main .recognition-detail-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 8px;
+  border-radius: 24px;
+  background: rgba(243, 248, 243, 0.96);
+  border: 1px solid rgba(41, 67, 50, 0.08);
+}
+
+.workspace__main .recognition-detail-nav__item {
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background: transparent;
+  color: #516153;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.workspace__main .recognition-detail-nav__item:hover {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(47, 107, 79, 0.1);
+}
+
+.workspace__main .recognition-detail-nav__item.is-active {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 247, 241, 0.98));
+  border-color: rgba(47, 107, 79, 0.18);
+  box-shadow: 0 12px 26px rgba(34, 58, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.workspace__main .recognition-detail-nav__item span,
+.workspace__main .recognition-detail-nav__item strong {
+  margin: 0;
+}
+
+.workspace__main .recognition-detail-nav__item span {
+  color: #708070;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workspace__main .recognition-detail-nav__item strong {
+  color: #17231d;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.workspace__main .recognition-control-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.workspace__main .recognition-control-summary__card,
+.workspace__main .recognition-control-card,
+.workspace__main .recognition-control-card__surface {
+  border: 1px solid rgba(41, 67, 50, 0.08);
+  background: rgba(249, 252, 249, 0.94);
+}
+
+.workspace__main .recognition-control-summary__card {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 18px;
+}
+
+.workspace__main .recognition-control-summary__card span,
+.workspace__main .recognition-control-summary__card p,
+.workspace__main .recognition-control-nav__item span,
+.workspace__main .recognition-control-card__surface p {
+  margin: 0;
+  color: #708070;
+}
+
+.workspace__main .recognition-control-summary__card span,
+.workspace__main .recognition-control-nav__item span {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workspace__main .recognition-control-summary__card strong,
+.workspace__main .recognition-control-nav__item strong,
+.workspace__main .recognition-control-card__head h4,
+.workspace__main .recognition-control-card__surface strong {
+  color: #17231d;
+}
+
+.workspace__main .recognition-control-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px;
+  border-radius: 22px;
+  background: rgba(243, 248, 243, 0.96);
+  border: 1px solid rgba(41, 67, 50, 0.08);
+}
+
+.workspace__main .recognition-control-nav__item {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.workspace__main .recognition-control-nav__item:hover {
+  background: rgba(255, 255, 255, 0.76);
+  border-color: rgba(47, 107, 79, 0.1);
+}
+
+.workspace__main .recognition-control-nav__item.is-active {
+  background: #ffffff;
+  border-color: rgba(47, 107, 79, 0.18);
+  box-shadow: 0 10px 24px rgba(34, 58, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.workspace__main .recognition-control-card {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 24px;
+}
+
+.workspace__main .recognition-control-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.workspace__main .recognition-control-card__head h4,
+.workspace__main .recognition-control-card__surface strong {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.workspace__main .recognition-control-card__surface {
+  display: grid;
+  gap: 6px;
+  padding: 15px 16px;
+  border-radius: 18px;
+}
+
+.workspace__main .recognition-hidden-media {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.workspace__main .recognition-advanced {
+  display: grid;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(41, 67, 50, 0.08);
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.workspace__main .recognition-advanced summary {
+  cursor: pointer;
+  color: #264837;
+  font-weight: 700;
+  list-style: none;
+}
+
+.workspace__main .recognition-advanced summary::-webkit-details-marker {
+  display: none;
+}
+
+.workspace__main .recognition-advanced__grid {
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 1180px) {
+  .workspace__main .recognition-control-summary,
+  .workspace__main .recognition-control-nav,
+  .workspace__main .recognition-placeholder-card__steps,
+  .workspace__main .recognition-detail-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .workspace__main .recognition-control-summary,
+  .workspace__main .recognition-control-nav,
+  .workspace__main .recognition-placeholder-card__steps,
+  .workspace__main .recognition-detail-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace__main .recognition-detail-nav__item {
+    min-height: 64px;
+  }
+}
+
+/* Botanical editorial redesign */
+.native-workspace {
+  gap: 18px;
+  align-items: start;
+}
+
+.native-workspace__panel {
+  gap: 18px;
+  padding: 24px;
+  border-radius: 30px;
+  background: rgba(255, 252, 247, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow: 0 20px 48px rgba(24, 36, 28, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.native-workspace__panel--controls {
+  top: 94px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(193, 233, 139, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(248, 250, 245, 0.82), rgba(241, 246, 239, 0.9));
+}
+
+.native-workspace__panel--canvas {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(193, 233, 139, 0.12), transparent 24%),
+    radial-gradient(circle at 0% 100%, rgba(191, 135, 80, 0.1), transparent 22%),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(250, 247, 241, 0.94));
+}
+
+.native-workspace__section-head {
+  gap: 8px;
+}
+
+.native-workspace__section-head h3 {
+  color: var(--surface-ink);
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+}
+
+.native-workspace__section-head p:last-child {
+  color: var(--muted-strong);
+}
+
+.native-workspace__group {
+  padding-top: 16px;
+  border-top-color: rgba(21, 37, 29, 0.08);
+}
+
+.native-field span,
+.native-workspace__panel--controls .native-field span,
+.annotation-sidebar__section-head h4,
+.workspace__main .annotation-sidebar__section-head h4 {
+  color: var(--surface-ink);
+}
+
+.native-field input,
+.native-field select,
+.native-field textarea,
+.native-inline-actions input,
+.workspace__main .native-workspace__panel--controls .native-field input,
+.workspace__main .native-workspace__panel--controls .native-field select,
+.workspace__main .native-workspace__panel--controls .native-field textarea,
+.workspace__main .native-workspace__panel--controls .native-inline-actions input {
+  min-height: 50px;
+  border-radius: 16px;
+  border: 1px solid rgba(21, 37, 29, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
+}
+
+.native-field textarea,
+.native-textarea {
+  min-height: 108px;
+}
+
+.native-field input::placeholder,
+.native-inline-actions input::placeholder {
+  color: rgba(108, 123, 113, 0.8);
+}
+
+.native-field input:focus,
+.native-field select:focus,
+.native-field textarea:focus,
+.native-inline-actions input:focus {
+  outline: 2px solid rgba(42, 105, 74, 0.14);
+  border-color: rgba(42, 105, 74, 0.24);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.native-checkbox {
+  color: var(--muted-strong);
+}
+
+.native-tablist,
+.annotation-mode-switch {
+  gap: 10px;
+}
+
+.native-tablist__item,
+.annotation-mode-switch__item,
+.recognition-stage__mode {
+  border-radius: 16px;
+  border: 1px solid rgba(21, 37, 29, 0.08);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--surface-ink);
+  font-weight: 700;
+}
+
+.native-tablist__item.is-active,
+.annotation-mode-switch__item.is-active,
+.recognition-stage__mode.is-active {
+  color: #f8fbf7;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(193, 233, 139, 0.18), transparent 40%),
+    linear-gradient(135deg, #2f6f4f 0%, #173d2d 100%);
+  box-shadow: 0 14px 30px rgba(23, 61, 45, 0.18);
+}
+
+.native-file-field__surface {
+  min-height: 54px;
+  padding: 9px 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(21, 37, 29, 0.1);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.native-hint,
+.native-feedback p,
+.native-feedback span,
+.ops-card p,
+.guide-card p,
+.recognition-result-card p,
+.annotation-template-card p,
+.annotation-sidebar__stat span,
+.annotation-dataset-overview__card span,
+.annotation-clone-card p,
+.annotation-template-summary p {
+  color: var(--muted-strong);
+}
+
+.native-feedback {
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(21, 37, 29, 0.08);
+}
+
+.native-feedback strong {
+  color: #a14f40;
+}
+
+.native-empty,
+.native-lock-panel {
+  border-radius: 28px;
+}
+
+.native-empty {
+  background: rgba(248, 250, 245, 0.76);
+  border: 1px dashed rgba(21, 37, 29, 0.12);
+}
+
+.native-lock-panel {
+  background:
+    radial-gradient(circle at top right, rgba(193, 233, 139, 0.12), transparent 24%),
+    linear-gradient(145deg, rgba(20, 44, 32, 0.98), rgba(16, 30, 23, 0.96));
+}
+
+.recognition-stage,
+.annotation-stage,
+.native-video-box {
+  border-radius: 28px;
+  border: 1px solid rgba(21, 37, 29, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.recognition-stage,
+.annotation-stage {
+  background:
+    radial-gradient(circle at top right, rgba(193, 233, 139, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(17, 34, 25, 0.98), rgba(12, 24, 18, 0.98));
+}
+
+.recognition-stage__toolbar {
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.recognition-stage__actions,
+.recognition-stage__modes,
+.native-inline-actions {
+  gap: 10px;
+}
+
+.recognition-box,
+.annotation-box {
+  border-radius: 18px;
+  border-color: rgba(221, 239, 186, 0.94);
+  background: rgba(163, 208, 124, 0.12);
+}
+
+.recognition-box strong {
+  background: rgba(10, 20, 15, 0.72);
+}
+
+.recognition-result-card,
+.ops-card,
+.guide-card,
+.annotation-sidebar__stat,
+.annotation-dataset-overview__card,
+.annotation-clone-card,
+.annotation-template-summary,
+.annotation-template-card {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(21, 37, 29, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.recognition-result-card strong,
+.ops-card strong,
+.guide-card strong,
+.annotation-sidebar__stat strong,
+.annotation-dataset-overview__card strong,
+.annotation-clone-card strong,
+.annotation-template-summary strong,
+.annotation-template-card__head strong {
+  color: var(--surface-ink);
+}
+
+.recognition-result-card--hero,
+.ops-card:first-child {
+  background:
+    radial-gradient(circle at top right, rgba(193, 233, 139, 0.16), transparent 28%),
+    radial-gradient(circle at 0% 100%, rgba(191, 135, 80, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(250, 247, 241, 0.72));
+}
+
+.annotation-intro-card,
+.admin-hero-card {
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(193, 233, 139, 0.18), transparent 26%),
+    radial-gradient(circle at bottom left, rgba(191, 135, 80, 0.16), transparent 24%),
+    linear-gradient(145deg, rgba(24, 52, 38, 0.98), rgba(16, 31, 23, 0.98));
+  box-shadow: 0 24px 54px rgba(16, 29, 22, 0.2);
+}
+
+.annotation-intro-card span,
+.admin-hero-card span {
+  color: rgba(201, 227, 179, 0.72);
+}
+
+.annotation-template-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(24, 36, 28, 0.08);
+}
+
+.annotation-template-card.is-active {
+  border-color: rgba(42, 105, 74, 0.22);
+  box-shadow: 0 20px 42px rgba(42, 105, 74, 0.12);
+}
+
+.annotation-class-cloud__item,
+.annotation-template-card__preview span,
+.annotation-class-cloud__empty {
+  background: rgba(42, 105, 74, 0.08);
+}
+
+.annotation-class-cloud__item.is-active {
+  color: #f8fbf7;
+  background: linear-gradient(135deg, #2f6f4f 0%, #173d2d 100%);
+}
+
+.annotation-stage--focus {
+  background:
+    radial-gradient(circle at top right, rgba(193, 233, 139, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(17, 34, 25, 0.98), rgba(12, 24, 18, 0.98));
+}
+
+.guide-grid,
+.ops-metric-grid,
+.recognition-result-grid,
+.annotation-meta-grid,
+.annotation-template-grid {
+  gap: 14px;
+}
+
+.native-link {
+  color: var(--accent-strong);
+}
+
+@media (max-width: 1180px) {
+  .native-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .native-workspace__panel--controls {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .native-workspace__panel {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .annotation-intro-card,
+  .admin-hero-card,
+  .annotation-sidebar__overview,
+  .annotation-dataset-overview,
+  .annotation-sidebar__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .recognition-stage__toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

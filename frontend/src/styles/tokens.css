@@ -1,0 +1,34 @@
+:root {
+  color-scheme: light;
+  --bg-0: #f3ede3;
+  --bg-1: #edf3eb;
+  --surface: rgba(255, 252, 247, 0.82);
+  --surface-strong: rgba(255, 253, 249, 0.98);
+  --surface-soft: rgba(246, 250, 244, 0.86);
+  --surface-ink: #15251d;
+  --text: #19271f;
+  --muted: #6c7b71;
+  --muted-strong: #516056;
+  --line: rgba(21, 37, 29, 0.1);
+  --line-strong: rgba(21, 37, 29, 0.18);
+  --accent: #2a694a;
+  --accent-strong: #173f2e;
+  --accent-soft: rgba(42, 105, 74, 0.12);
+  --accent-ink: #f8fbf7;
+  --shell-dark: #11231a;
+  --shell-dark-2: #183126;
+  --shell-dark-3: #274837;
+  --warm-accent: #bf8750;
+  --warm-soft: rgba(191, 135, 80, 0.16);
+  --shadow-lg: 0 36px 92px rgba(24, 36, 28, 0.16);
+  --shadow-md: 0 20px 48px rgba(24, 36, 28, 0.12);
+  --shadow-sm: 0 12px 28px rgba(24, 36, 28, 0.08);
+  --radius-2xl: 32px;
+  --radius-xl: 26px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --max-width: 1640px;
+  --font-body: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Songti SC", "Noto Serif SC", serif;
+}

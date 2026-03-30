@@ -1,0 +1,53 @@
+﻿services:
+  legacy-backend:
+    build:
+      context: ..
+      dockerfile: deploy/backend.Dockerfile
+    env_file:
+      - ./backend.env
+    expose:
+      - "7800"
+    volumes:
+      - plant-models:/app/plantbackend/models
+      - plant-datasets:/app/plantbackend/annotation_datasets
+      - plant-training-runs:/app/plantbackend/training_runs
+      - plant-runtime:/app/plantbackend/runtime
+
+  backend:
+    build:
+      context: ..
+      dockerfile: deploy/backend-spring.Dockerfile
+    depends_on:
+      - legacy-backend
+    environment:
+      SPRING_SERVER_PORT: 7800
+      LEGACY_BACKEND_AUTO_START: "false"
+      LEGACY_BACKEND_BASE_URL: http://legacy-backend:7800
+      PLANT_BACKEND_ROOT: /app/plantbackend
+      AUTH_DB_PATH: /app/plantbackend/runtime/plant_auth.db
+      MODELS_DIR: /app/plantbackend/models
+      ANNOTATION_DATASETS_ROOT: /app/plantbackend/annotation_datasets
+      AUGMENT_SCRIPT_PATH: /app/plantbackend/augment_yolo.py
+      AUGMENTATION_ALGORITHMS_DIR: /app/plantbackend/augmentation_algorithms
+      ACTIVE_AUGMENTATION_SCRIPT_RECORD: /app/plantbackend/runtime/active_augmentation_script.txt
+    ports:
+      - "7800:7800"
+    volumes:
+      - plant-models:/app/plantbackend/models
+      - plant-datasets:/app/plantbackend/annotation_datasets
+      - plant-runtime:/app/plantbackend/runtime
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: deploy/frontend.Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "5500:80"
+
+volumes:
+  plant-models:
+  plant-datasets:
+  plant-training-runs:
+  plant-runtime:

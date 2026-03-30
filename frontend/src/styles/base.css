@@ -1,0 +1,617 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(202, 170, 120, 0.2), transparent 22%),
+    radial-gradient(circle at 82% 10%, rgba(132, 165, 136, 0.28), transparent 18%),
+    radial-gradient(circle at 84% 84%, rgba(208, 216, 178, 0.42), transparent 24%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0)),
+    linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled,
+a[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.58;
+  box-shadow: none;
+  transform: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+code {
+  padding: 0.18rem 0.42rem;
+  border-radius: 999px;
+  color: var(--accent-strong);
+  background: rgba(45, 138, 87, 0.1);
+}
+
+#root {
+  isolation: isolate;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.app-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at 50% 0%, rgba(255, 250, 242, 0.2), transparent 34%),
+    linear-gradient(180deg, rgba(96, 126, 89, 0.04), rgba(0, 0, 0, 0));
+  opacity: 0.9;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 18px;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-1px);
+}
+
+.primary {
+  color: #f7fbf5;
+  background: linear-gradient(135deg, #2f6b4f 0%, #1a3f2d 100%);
+  box-shadow: 0 16px 32px rgba(26, 63, 45, 0.22);
+}
+
+.secondary {
+  color: var(--surface-ink);
+  background: rgba(255, 251, 246, 0.78);
+  border: 1px solid rgba(32, 49, 38, 0.1);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--surface-ink);
+  background: rgba(255, 251, 246, 0.76);
+  border: 1px solid rgba(32, 49, 38, 0.08);
+}
+
+.status-pill--online {
+  color: #194a34;
+  background: rgba(45, 138, 87, 0.12);
+}
+
+.status-pill--critical {
+  color: #8d4335;
+  background: rgba(180, 81, 57, 0.12);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark__glyph {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  color: #f7fcf6;
+  background: linear-gradient(135deg, #3b7a58 0%, #20412f 100%);
+  box-shadow: 0 14px 30px rgba(32, 65, 47, 0.18);
+}
+
+.brand-mark__glyph svg {
+  width: 27px;
+  height: 27px;
+}
+
+.brand-mark__copy {
+  display: grid;
+  gap: 2px;
+}
+
+.brand-mark__copy strong {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  letter-spacing: -0.03em;
+}
+
+.brand-mark__copy span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.brand-mark--compact .brand-mark__glyph {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+}
+
+.brand-mark--compact .brand-mark__glyph svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 14px;
+  }
+}
+
+/* Console redesign */
+body {
+  background:
+    linear-gradient(180deg, #f7f8fc 0%, #eff2f7 100%);
+}
+
+.app-shell {
+  padding: 16px 20px 24px;
+}
+
+.app-shell::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(76, 86, 109, 0.02) 0,
+      rgba(76, 86, 109, 0.02) 1px,
+      transparent 1px,
+      transparent 96px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(76, 86, 109, 0.02) 0,
+      rgba(76, 86, 109, 0.02) 1px,
+      transparent 1px,
+      transparent 96px
+    );
+  opacity: 0.08;
+}
+
+.app-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0% 100%, rgba(111, 93, 183, 0.06), transparent 22%);
+}
+
+.primary,
+.secondary {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.primary {
+  color: #fff;
+  background: linear-gradient(135deg, #725fbc 0%, #5b4ca1 100%);
+  box-shadow: 0 10px 22px rgba(111, 93, 183, 0.2);
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-1px);
+}
+
+.secondary {
+  color: var(--surface-ink);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.status-pill {
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: rgba(245, 241, 232, 0.92);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+}
+
+.status-pill--online {
+  color: #eff6ea;
+  background: rgba(116, 176, 135, 0.14);
+}
+
+.status-pill--critical {
+  color: #ffe3d7;
+  background: rgba(180, 81, 57, 0.16);
+}
+
+.status-pill--ghost {
+  color: rgba(245, 241, 232, 0.68);
+}
+
+.brand-mark {
+  gap: 12px;
+}
+
+.brand-mark__glyph {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  color: #f4f5fb;
+  background:
+    linear-gradient(135deg, rgba(133, 113, 205, 0.18), transparent 70%),
+    linear-gradient(160deg, #2b3152 0%, #1a2039 100%);
+  box-shadow: 0 12px 26px rgba(36, 34, 77, 0.18);
+}
+
+.brand-mark__glyph svg {
+  width: 23px;
+  height: 23px;
+}
+
+.brand-mark__copy strong {
+  color: #f5f0e7;
+  font-size: 1rem;
+}
+
+.brand-mark__copy span {
+  color: rgba(239, 233, 223, 0.6);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 12px 12px 16px;
+  }
+}
+
+/* Elegant green pass */
+body {
+  background:
+    radial-gradient(circle at top left, rgba(116, 151, 127, 0.1), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(192, 213, 187, 0.16), transparent 22%),
+    linear-gradient(180deg, #f5f7f3 0%, #eef2ec 100%);
+}
+
+.app-shell::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 24%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(57, 82, 66, 0.015) 0,
+      rgba(57, 82, 66, 0.015) 1px,
+      transparent 1px,
+      transparent 96px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(57, 82, 66, 0.015) 0,
+      rgba(57, 82, 66, 0.015) 1px,
+      transparent 1px,
+      transparent 96px
+    );
+  opacity: 0.06;
+}
+
+.app-shell::after {
+  background: radial-gradient(circle at 0% 100%, rgba(47, 107, 79, 0.06), transparent 24%);
+}
+
+.primary {
+  background: linear-gradient(135deg, #356c51 0%, #244636 100%);
+  box-shadow: 0 10px 22px rgba(36, 70, 54, 0.16);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(26, 44, 34, 0.1);
+}
+
+.brand-mark__glyph {
+  color: #f6faf7;
+  background:
+    linear-gradient(135deg, rgba(132, 177, 149, 0.16), transparent 70%),
+    linear-gradient(160deg, #294535 0%, #1a2d23 100%);
+  box-shadow: 0 12px 24px rgba(26, 45, 35, 0.16);
+}
+
+.brand-mark {
+  gap: 14px;
+}
+
+.brand-mark__glyph {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(186, 223, 91, 0.14), transparent 48%),
+    linear-gradient(160deg, #20392c 0%, #16261d 100%);
+}
+
+.brand-mark__glyph svg {
+  width: 38px;
+  height: 38px;
+}
+
+.brand-mark--compact .brand-mark__glyph {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+}
+
+.brand-mark--compact .brand-mark__glyph svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Botanical editorial redesign */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(204, 174, 128, 0.18), transparent 18%),
+    radial-gradient(circle at 84% 14%, rgba(118, 156, 126, 0.18), transparent 18%),
+    radial-gradient(circle at 88% 88%, rgba(218, 226, 201, 0.3), transparent 24%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0)),
+    linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(35, 57, 46, 0.025) 0,
+      rgba(35, 57, 46, 0.025) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(35, 57, 46, 0.025) 0,
+      rgba(35, 57, 46, 0.025) 1px,
+      transparent 1px,
+      transparent 120px
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.18;
+}
+
+::selection {
+  color: #fffdf9;
+  background: rgba(42, 105, 74, 0.72);
+}
+
+.app-shell {
+  width: min(100%, 1800px);
+  margin: 0 auto;
+  padding: 22px 24px 32px;
+}
+
+.app-shell::before {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.4), transparent 18%),
+    radial-gradient(circle at 78% 0%, rgba(255, 245, 232, 0.22), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 36%);
+  opacity: 1;
+}
+
+.app-shell::after {
+  background:
+    radial-gradient(circle at 0% 100%, rgba(42, 105, 74, 0.08), transparent 28%),
+    radial-gradient(circle at 100% 0%, rgba(191, 135, 80, 0.08), transparent 18%);
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(42, 105, 74, 0.22);
+  outline-offset: 2px;
+}
+
+code {
+  border: 1px solid rgba(42, 105, 74, 0.1);
+  color: var(--accent-strong);
+  background: rgba(42, 105, 74, 0.08);
+}
+
+.eyebrow {
+  color: rgba(248, 252, 247, 0.74);
+  letter-spacing: 0.18em;
+}
+
+.primary,
+.secondary {
+  min-height: 50px;
+  padding: 0 20px;
+  border-radius: 16px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.primary {
+  color: var(--accent-ink);
+  border: 1px solid rgba(14, 42, 29, 0.22);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(199, 230, 172, 0.18), transparent 46%),
+    linear-gradient(135deg, #2f6f4f 0%, #173d2d 100%);
+  box-shadow: 0 16px 32px rgba(23, 61, 45, 0.18);
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgba(23, 61, 45, 0.22);
+}
+
+.secondary {
+  color: var(--surface-ink);
+  border: 1px solid rgba(21, 37, 29, 0.1);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(12px);
+}
+
+.secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.status-pill {
+  min-height: 36px;
+  padding: 0 13px;
+  color: var(--muted-strong);
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid rgba(21, 37, 29, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.status-pill--online {
+  color: #215339;
+  background: rgba(42, 105, 74, 0.12);
+}
+
+.status-pill--critical {
+  color: #984b3d;
+  background: rgba(180, 92, 74, 0.12);
+}
+
+.status-pill--ghost {
+  color: rgba(81, 96, 86, 0.82);
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.brand-mark {
+  gap: 12px;
+}
+
+.brand-mark__glyph {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  color: #f7fbf7;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(193, 233, 139, 0.22), transparent 44%),
+    radial-gradient(circle at 74% 72%, rgba(99, 146, 108, 0.26), transparent 36%),
+    linear-gradient(160deg, #223a2d 0%, #13241c 100%);
+  box-shadow: 0 16px 34px rgba(19, 36, 28, 0.18);
+}
+
+.brand-mark__glyph svg {
+  width: 36px;
+  height: 36px;
+}
+
+.brand-mark__copy {
+  gap: 3px;
+}
+
+.brand-mark__copy strong {
+  font-size: 1.08rem;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark__copy span {
+  color: rgba(81, 96, 86, 0.88);
+  font-size: 0.82rem;
+}
+
+.brand-mark--compact .brand-mark__glyph {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+}
+
+.brand-mark--compact .brand-mark__glyph svg {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 14px 14px 22px;
+  }
+
+  .primary,
+  .secondary {
+    min-height: 46px;
+    padding-inline: 16px;
+  }
+}
