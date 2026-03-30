@@ -1,16 +1,11 @@
-﻿HELP.md
-target/
 backend-spring/target/
-.mvn/wrapper/maven-wrapper.jar
+target/
 
 frontend/node_modules/
 frontend/dist/
 frontend/playwright-report/
 frontend/test-results/
 frontend/.vite/
-
-.inspect-model/
-models/
 
 plantbackend/.venv/
 plantbackend/.venv-train/
@@ -25,9 +20,13 @@ plantbackend/models/*.meta.json
 plantbackend/training_runs/
 plantbackend/annotation_datasets/
 
-deploy/backend.env
+.inspect-model/
+releases/
 runtime/
 video_frames/
+models/
+
+deploy/backend.env
 
 __pycache__/
 *.py[cod]
@@ -38,35 +37,30 @@ __pycache__/
 *.pid
 *.pt
 *.onnx
+.start_test.txt
 backend*.log
 
-!**/src/main/**/target/
-!**/src/test/**/target/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
+.idea/
+.vscode/
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 build/
-
-### VS Code ###
-.vscode/
+.venv/
+.venv-linux/
+venv/
+env/

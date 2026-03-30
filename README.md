@@ -1,262 +1,170 @@
-> 当前主运行栈
-> - 前端：`frontend/`
-> - Spring 主后端：`backend-spring/`
-> - Python legacy 能力层：`plantbackend/`
-> - Docker 部署：`deploy/`
->
-> 根目录原有 `src/` 与 `pom.xml` 为早期实验代码，已保留但不参与当前 Docker / 前后端主链路。
 # Plant
 
-植物病害智能识别与训练平台。
+Plant 是一个植物病害识别、标注与训练平台，当前仓库采用前后端分层架构。
 
-当前仓库已经重构为前后端分离架构：
+当前实际在用的主链路只有三层：
 
-- `frontend/`：React + Vite 前端
-- `backend-spring/`：对外主后端，基于 Spring Boot
-- `plantbackend/`：保留的 Python legacy 能力层，继续承载推理、训练、标注数据处理、AI 建议等已有能力
+- `frontend/`：React + Vite 工作台前端
+- `backend-spring/`：Spring Boot 对外主后端与网关
+- `plantbackend/`：Python legacy 能力层，负责推理、训练、数据集导入和 AI 建议
 
-这次架构调整的目标是“重构而不改功能”。因此，前端访问入口和主要接口协议保持不变，但对外服务入口已经切换为 Spring。
+根目录早期的 Spring 初始化工程已经移除，仓库根目录现在只保留启动脚本、部署文件和共享工具脚本。
 
-## 项目结构
+## 架构说明
+
+### 本地开发
+
+1. 前端运行在 `http://127.0.0.1:5500`
+2. Spring 后端运行在 `http://127.0.0.1:7800`
+3. Python legacy 后端运行在 `http://127.0.0.1:7801`
+
+前端只请求 Spring。Spring 负责对外 API、统一入口和兼容层，推理/训练等现有能力仍由 Python 层承接。
+
+### Docker 部署
+
+- `frontend`：Nginx 托管的静态前端
+- `backend`：Spring 主后端
+- `legacy-backend`：Python legacy 后端
+
+在 Docker Compose 中，Spring 通过 `http://legacy-backend:7800` 调用 legacy 服务。
+
+## 仓库结构
 
 ```text
-plant/
-├─ frontend/                  # Vite + React 前端
-│  ├─ src/                    # 页面组件、hooks、API 客户端、样式
-│  ├─ public/
-│  ├─ tests/
-│  └─ vite.config.js
-├─ backend-spring/            # Spring Boot 主后端
-│  ├─ src/main/java/
-│  ├─ src/main/resources/
-│  └─ pom.xml
-├─ plantbackend/              # Python legacy 能力层
-│  ├─ api_router.py
-│  ├─ auth_store.py
-│  ├─ model_service.py
-│  ├─ ai_advice_service.py
-│  ├─ train_yolo.py
-│  ├─ augment_yolo.py
-│  └─ .env.example
-├─ deploy/                    # Docker / Nginx / Compose 部署文件
-├─ tools/
-├─ start_backend.ps1          # 启动 Spring 主后端
-├─ start_legacy_backend.ps1   # 单独启动 Python legacy 后端
-├─ start_frontend.ps1         # 启动前端开发服务器
-└─ Makefile
+.
+|-- frontend/                 # React + Vite 前端
+|-- backend-spring/           # 当前唯一生效的 Spring Boot 后端
+|-- plantbackend/             # Python legacy 后端与训练链路
+|-- deploy/                   # Dockerfile、Compose、部署配置
+|-- tools/                    # 冒烟检查、打包、清理脚本
+|-- output/demo/              # 可选演示素材
+|-- start_backend.ps1         # 构建并启动 Spring，可自动拉起 legacy
+|-- start_frontend.ps1        # 安装依赖并启动 Vite
+|-- start_legacy_backend.ps1  # 单独启动 legacy 后端
+|-- serve_frontend.py         # 构建产物的简易静态服务脚本
+`-- Makefile                  # 常用命令入口
 ```
-
-## 当前架构
-
-### 运行关系
-
-默认本地开发时有三层：
-
-1. `frontend` 运行在 `5500`
-2. `backend-spring` 运行在 `7800`
-3. `plantbackend` legacy 后端运行在 `7801`
-
-前端只请求 Spring 主后端；Spring 再将原有业务接口转发给 Python legacy 后端。这样做的好处是：
-
-- 前端不需要大改
-- 现有功能可以继续使用
-- Java 后端可以逐步接管旧能力，而不是一次性重写所有推理和训练逻辑
-
-### 当前职责划分
-
-- `frontend/`：界面、工作台、会话管理、前端 API 调用
-- `backend-spring/`：统一入口、网关代理、后续 Java 化承接点
-- `plantbackend/`：模型推理、训练任务、标注数据管理、AI 建议、已有认证与资源访问逻辑
 
 ## 环境要求
 
-推荐准备以下环境：
-
-- Java 21 或更高版本
+- Java 21+
 - Maven 3.9+
 - Node.js 20+
-- Python 3.10+（如果要训练，推荐单独准备 Python 3.12 环境）
+- Python 3.10+
 
-如果你希望 Spring 自动拉起 legacy 后端，需要保证 Python 环境中已安装 `uvicorn` 和 `plantbackend/requirements.txt` 里的依赖。
+如果要跑训练链路，仍建议单独准备 Python 3.12 环境。
 
 ## 快速启动
 
-### Windows / PowerShell
+### 推荐方式：Windows / PowerShell
 
-推荐直接使用仓库里的启动脚本。
-
-先启动主后端：
+在仓库根目录执行：
 
 ```powershell
 ./start_backend.ps1
-```
-
-再启动前端：
-
-```powershell
 ./start_frontend.ps1
 ```
 
-默认访问地址：
+启动完成后：
 
 - 前端：`http://127.0.0.1:5500`
-- Spring 主后端：`http://127.0.0.1:7800`
+- Spring 后端：`http://127.0.0.1:7800`
 - 健康检查：`http://127.0.0.1:7800/health`
 
-`start_backend.ps1` 会先构建 `backend-spring`，再以 `java -jar` 方式启动它。默认情况下，Spring 会尝试把 Python legacy 后端拉到 `7801`。
+`start_backend.ps1` 会先构建 `backend-spring/`，再启动最新的可运行 jar；如果 legacy 后端未启动，Spring 会尝试自动拉起它。
 
-如果本机没有全局 Python，但你已经有一个可用的虚拟环境，也可以显式指定：
+如果你希望 Spring 使用指定的 Python 解释器来启动 legacy：
+
 ```powershell
 ./start_backend.ps1 -LegacyPythonPath D:\path\to\python.exe
 ```
 
-单独启动 legacy 后端时也支持：
+如果自动拉起不可用，可以先手动把 legacy 跑在 `7801`，再启动 Spring：
+
 ```powershell
 ./start_legacy_backend.ps1 -PythonPath D:\path\to\python.exe -Port 7801
-```
-
-### 如果 legacy 后端没有自动启动
-
-如果当前机器还没准备好 Python 环境，可以手动启动 legacy 后端：
-
-```powershell
-./start_legacy_backend.ps1 -Port 7801
-```
-
-然后再启动：
-
-```powershell
 ./start_backend.ps1
 ```
 
-## Python legacy 环境准备
+### 只启动前端
 
-从示例环境文件开始：
-
-```bash
-cp plantbackend/.env.example plantbackend/.env
-```
-
-至少要设置管理员密码：
-
-```bash
-export BOOTSTRAP_ADMIN_PASSWORD="请改成你自己的强密码"
-```
-
-### 仅运行 legacy API
-
-```bash
-cd plantbackend
-python -m venv .venv
-. .venv/bin/activate
-python -m pip install -U pip
-python -m pip install -r requirements.txt
-python -m uvicorn asgi:app --host 127.0.0.1 --port 7801
-```
-
-### 需要训练能力时
-
-如果本机默认 Python 版本对 `torch` / `ultralytics` 不兼容，建议准备单独的训练环境：
-
-```bash
-cd plantbackend
-python3.12 -m venv .venv-train
-. .venv-train/bin/activate
-python -m pip install -U pip
-python -m pip install -r requirements.txt
-```
-
-训练相关脚本会优先尝试使用训练环境解释器。
-
-## 前端开发
-
-```bash
+```powershell
 cd frontend
 npm install
 npm run dev
 ```
 
-开发代理默认转发到：
+开发代理默认把 `/api/*` 转发到 `http://127.0.0.1:7800`。
 
-- `/api/*` -> `http://127.0.0.1:7800/*`
+## Python legacy 环境准备
 
-如果你想改开发代理目标，可以设置：
+先从示例环境文件开始：
 
-```bash
-VITE_DEV_API_PROXY_TARGET=http://127.0.0.1:7800
+```powershell
+Copy-Item plantbackend/.env.example plantbackend/.env
 ```
 
-## Docker 首次启动说明
+至少需要修改 `plantbackend/.env` 里的管理员初始密码。
 
-- 首次启动时，`legacy-backend` 容器会自动把镜像内自带的默认模型写入 `models` 卷，因此即使不挂载宿主机目录，也会有一个可用的 `best.onnx`。
-- 鉴权数据库已改为运行时目录：`/app/plantbackend/runtime/plant_auth.db`。
-- 首次启动必须设置管理员密码，当前示例文件在 `deploy/backend.env` 里使用 `BOOTSTRAP_ADMIN_PASSWORD=change_me`，实际使用前请修改。
-- `backend-spring` 容器镜像内已包含 `plantbackend/augment_yolo.py` 和 `augmentation_algorithms/`，不再依赖整目录 bind mount。
+典型手动启动方式：
+
+```powershell
+cd plantbackend
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -U pip
+python -m pip install -r requirements.txt
+python -m uvicorn asgi:app --host 127.0.0.1 --port 7801
+```
+
 ## Docker 部署
 
-部署配置位于 `deploy/`。
-
-```bash
+```powershell
 cd deploy
-cp backend.env.example backend.env
+Copy-Item backend.env.example backend.env
+```
+
+先把 `deploy/backend.env` 里的 `BOOTSTRAP_ADMIN_PASSWORD` 改掉，再执行：
+
+```powershell
 docker compose -f compose.prod.yml up --build
 ```
 
-Compose 当前会启动：
-
-- `legacy-backend`：Python 后端
-- `backend`：Spring 主后端
-- `frontend`：Nginx 托管的前端静态站点
-
-对外访问端口：
+对外端口：
 
 - `5500`：前端
-- `7800`：Spring 主后端
+- `7800`：Spring 后端
 
-## 常用命令
+持久化卷：
 
-根目录 `Makefile` 中保留了常用命令：
-
-```bash
-make backend
-make frontend
-make clean
-make docker-up
-```
-
-说明：
-
-- `make backend`：构建并启动 Spring 主后端
-- `make frontend`：启动前端开发环境
-- `make clean`：执行工作区清理脚本
-- `make docker-up`：启动生产部署编排
+- `plant-models`
+- `plant-datasets`
+- `plant-training-runs`
+- `plant-runtime`
 
 ## 关键环境变量
 
-### Spring 主后端
+### Spring 后端
 
 - `SPRING_SERVER_PORT`
 - `LEGACY_BACKEND_BASE_URL`
 - `LEGACY_BACKEND_AUTO_START`
 - `LEGACY_BACKEND_PORT`
-- `LEGACY_BACKEND_WORKING_DIRECTORY`
 - `LEGACY_BACKEND_PYTHON_PATH`
+- `PLANT_BACKEND_ROOT`
 
-### Python legacy 后端
+### Legacy 后端
 
-可参考 `plantbackend/.env.example`：
+完整列表见 `plantbackend/.env.example`。常用项如下：
 
 - `BOOTSTRAP_ADMIN_PASSWORD`
-- `ALLOWED_ORIGINS`
 - `MODELS_DIR`
 - `AUTH_DB_PATH`
 - `ANNOTATION_DATASETS_ROOT`
 - `TRAINING_RUNS_DIR`
 - `TRAINING_BASE_MODEL`
-- `TRAINING_EPOCHS`
-- `TRAINING_IMGSZ`
 
-### AI 建议与大模型接入
+### 可选 AI 接入
 
 - `AI_API_URL`
 - `AI_API_BASE_URL`
@@ -267,26 +175,41 @@ make docker-up
 - `AI_API_MAX_IMAGE_BYTES`
 - `AI_API_IMAGE_DETAIL`
 
-如果配置了兼容 OpenAI 的模型服务，系统会优先调用远端多模态或文本模型生成建议；未配置时会退回本地内置建议。
+## 演示素材
 
-## 运行数据说明
+`output/demo/` 下保留了可选演示图片、演示数据集和简单演示说明，方便本地展示功能链路。
 
-以下内容属于运行数据，不建议当作“无用文件”直接删除：
+## 打包与上传
 
+如果要生成一份干净的交付包：
+
+```bash
+bash tools/package_release.sh
+```
+
+脚本会在 `releases/` 下生成压缩包，并自动排除以下本地文件：
+
+- 虚拟环境
+- Maven 与前端构建产物
+- 本地数据库
+- 本地数据集和训练结果
+- 临时日志
+- `deploy/backend.env` 这类本地环境文件
+
+生成结果：
+
+- `plant-release-<timestamp>.tar.gz`
+- `plant-release-<timestamp>.zip`
+- `plant-release-<timestamp>.sha256`
+
+## 不应入库的运行时数据
+
+- `plantbackend/.env`
+- `plantbackend/plant_auth.db`
 - `plantbackend/models/`
 - `plantbackend/annotation_datasets/`
 - `plantbackend/training_runs/`
-- `plantbackend/plant_auth.db`
-- 上传后的模型标签和元数据文件
-
-## 当前阶段说明
-
-当前版本已经完成“以 Spring 为基础的前后端分离重构”，但还没有把所有业务实现彻底改写成纯 Java。现阶段的真实状态是：
-
-- Spring 是主后端入口
-- Python legacy 层仍然承接原有核心能力
-- 前端接口保持兼容
-
-如果后续继续推进，可以再按模块逐步把认证、模型管理、标注、训练任务等能力从 Python 迁移到 Java。
-
-
+- `backend-spring/target/`
+- `frontend/node_modules/`
+- `frontend/dist/`
+- `releases/`

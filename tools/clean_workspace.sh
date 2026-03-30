@@ -6,9 +6,12 @@ cd "$PROJECT_ROOT"
 
 rm -rf \
   .codex-artifacts \
+  .inspect-model \
   .playwright-cli \
   .venv \
   .venv-linux \
+  backend-spring/target \
+  frontend/.vite \
   frontend/dist \
   frontend/test-results \
   plantbackend/.venv \
@@ -16,9 +19,14 @@ rm -rf \
   plantbackend/.venv_linux \
   plantbackend/__pycache__ \
   plantbackend/.vscode \
+  releases \
   video_frames
 
 rm -f \
+  .run_*.log \
+  .tmp_backend*.log \
+  .start_test.txt \
+  backend*.log \
   plantbackend/auth.db \
   yolo_split_augmented.zip \
   yolo_split_augmented_with_classes.zip

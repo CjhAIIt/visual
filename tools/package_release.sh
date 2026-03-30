@@ -31,10 +31,15 @@ rsync -a \
   --exclude=".idea/" \
   --exclude=".vscode/" \
   --exclude=".codex-artifacts/" \
+  --exclude=".inspect-model/" \
   --exclude=".playwright-cli/" \
   --exclude="__pycache__/" \
   --exclude="*.pyc" \
   --exclude="*.pyo" \
+  --exclude=".run_*.log" \
+  --exclude=".tmp_backend*.log" \
+  --exclude=".start_test.txt" \
+  --exclude="backend*.log" \
   --exclude=".venv/" \
   --exclude=".venv-linux/" \
   --exclude="venv/" \
@@ -44,12 +49,15 @@ rsync -a \
   --exclude="runtime/" \
   --exclude="video_frames/" \
   --exclude="deploy/backend.env" \
+  --exclude="backend-spring/target/" \
   --exclude="frontend/node_modules/" \
   --exclude="frontend/.vite/" \
   --exclude="frontend/playwright-report/" \
   --exclude="frontend/test-results/" \
   --exclude="frontend/index.shell-backup-*.html" \
+  --exclude="models/" \
   --exclude="test-results/" \
+  --exclude="target/" \
   --exclude="plantbackend/.venv/" \
   --exclude="plantbackend/.venv-linux/" \
   --exclude="plantbackend/.venv-train/" \
@@ -77,15 +85,18 @@ Git ref: $GIT_REF
 
 Included:
 - Frontend source and built dist assets
-- FastAPI backend source
+- Spring backend source
+- Python legacy backend source
 - Docker deployment files
 - Existing model assets and training base weights
 
 Excluded local-only data:
 - Virtual environments
+- Maven and build outputs
 - node_modules and test reports
 - Local auth databases
 - Local annotation datasets and training runs
+- Temporary logs and debug markers
 - Local env files such as deploy/backend.env
 
 Quick start:
